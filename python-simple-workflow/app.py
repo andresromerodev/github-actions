@@ -8,6 +8,6 @@ def create_ascii_art(text, font='standard'):
 
 name = os.getenv('USERNAME')
 if name:
-    create_ascii_art(name, , font="slant")
+    create_ascii_art(name, font="slant")
 else:
     print("No name provided. Please set the USERNAME environment variable.")
