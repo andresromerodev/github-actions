@@ -1,0 +1,32 @@
+name: Python Simple Workflow
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name if needed
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Choose the Python version you want to use
+
+    - name: Set user input as environment variable
+      run: echo "USERNAME=Andres" >> $GITHUB_ENV
+      # Replace 'Andres' with the desired name or use an environment variable here
+
+    - name: Install dependencies
+      run: pip install -r python-simple-workflow/requirements.txt  # Add this step if you have any dependencies
+
+    - name: Run Python app
+      # Update the path to the app.py script accordingly
+      run: |
+        python python-simple-workflow/app.py
